@@ -1,0 +1,6 @@
+# Ignore artifacts:
+.gradle
+.next
+build
+dist
+*.md
