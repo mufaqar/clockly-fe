@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { AuthenticatedTemplate, useMsal } from '@azure/msal-react';
+import DropdownNotification from '../header/DropdownNotification';
+import DropdownUser from '../header/DropdownUser';
+import DropdownMessage from '../header/DropdownMessage';
 
 export default function Header() {
   const { instance } = useMsal();
@@ -22,7 +25,10 @@ export default function Header() {
         >
           <h1 className="text-lg font-semibold">Clockly App</h1>
         </Link>
-        <div className="flex h-16 items-center justify-end px-4">
+        <div className="md:w-1/2 w-full flex gap-4 h-16 items-center justify-end px-4">
+          <DropdownNotification />
+          <DropdownMessage />
+          <DropdownUser />
           <AuthenticatedTemplate>
             <button onClick={logout}>Logout</button>
           </AuthenticatedTemplate>
