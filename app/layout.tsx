@@ -20,6 +20,7 @@ import Header from '@/components/layout/Header';
 import { cn } from '@/lib/style';
 import Sidebar from '@/components/layout/Sidebar';
 import { ToastContainer } from 'react-toastify';
+import Footer from '@/components/layout/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -98,6 +99,7 @@ export default function RootLayout({
                 >
                   {children}
                 </MsalAuthenticationTemplate>
+              
               </main>
             </div>
             <ToastContainer hideProgressBar={true} autoClose={10000} />
