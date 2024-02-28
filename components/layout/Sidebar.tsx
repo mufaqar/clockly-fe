@@ -26,7 +26,7 @@ export default function Sidebar() {
       className={cn(
         `relative block h-screen border-r pt-20 md:block z-10 bg-white`,
         status && 'duration-500',
-        isOpen ? 'w-72 absolute left-0 right-1/2 bg-white' : 'w-[78px]',
+        isOpen ? 'w-72   bg-white' : 'w-[78px]',
       )}
     >
       <div

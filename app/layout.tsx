@@ -99,10 +99,9 @@ export default function RootLayout({
                 >
                   {children}
                 </MsalAuthenticationTemplate>
-                <Footer />
+              
               </main>
             </div>
-            
             <ToastContainer hideProgressBar={true} autoClose={10000} />
           </MsalProvider>
         ) : (

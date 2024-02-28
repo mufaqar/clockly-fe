@@ -85,7 +85,6 @@ export default function Home() {
 
   return (
     <div className="grid lg:grid-cols-5 grid-cols-1 p-8 gap-8">
-   
       <div className="lg:col-span-2 col-span-1">
         <WorkdayEdit
           timestamp={timestamp}

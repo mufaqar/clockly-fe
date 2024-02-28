@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.node-gradle.node" version "7.0.1"
+    id "com.github.node-gradle.node" version "7.0.2"
 }
 
 node {
@@ -11,7 +11,7 @@ tasks.register('npmBuild', NpxTask) {
     dependsOn npmInstall
     command = 'next'
     args = [ 'build' , '--debug']
-    inputs.files('.env.development', '.env.production', 'package.json', 'package-lock.json', 'next.config.js', 'postcss.config.js', 'tailwind.config.ts', 'tsconfig.json')
+    inputs.files('.env', '.env.development', '.env.production', 'package.json', 'package-lock.json', 'next.config.js', 'postcss.config.js', 'tailwind.config.ts', 'tsconfig.json')
     inputs.dir('app')
     inputs.dir('components')
     inputs.dir('lib')
