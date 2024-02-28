@@ -35,7 +35,7 @@ const DropdownNotification = () => {
   });
 
   return (
-    <div className="relative">
+    <div className="sm:relative">
       <Link
         ref={trigger}
         onClick={() => {
@@ -58,14 +58,14 @@ const DropdownNotification = () => {
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute -right-20 mt-2.5 flex h-90 w-72 flex-col rounded-sm border bg-white shadow-default sm:right-0 sm:w-80 ${dropdownOpen === true ? "block" : "hidden"
+        className={`absolute right-4 mt-2.5 flex h-90 w-64 flex-col rounded-sm border bg-white shadow-default sm:right-0 sm:w-80 ${dropdownOpen === true ? "block" : "hidden"
           }`}
       >
         <div className="px-4 py-3">
           <h5 className="text-sm font-medium text-bodydark2">Notification</h5>
         </div>
 
-        <ul className="flex h-auto flex-col overflow-y-auto">
+        <ul className="flex h-72 flex-col overflow-y-scroll">
           <li>
             <Link
               className="flex flex-col gap-2.5 border-t px-4 py-3 hover:bg-gray-50 "

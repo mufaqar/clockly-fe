@@ -199,7 +199,7 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div className="flex flex-col gap-3 col-span-1">
           <label
             htmlFor="workBreak"
@@ -213,16 +213,16 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
             handleChange={(value) => handleChange('workBreak', value)}
           />
         </div>
-        <div className="col-span-1 flex justify-end items-end">
+        <div className="col-span-1 flex gap-1 justify-end items-end">
           <button
-            className="hover:bg-sky-500 px-1"
+            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
             onClick={() => submit(workday)}
           >
             Speichern
           </button>
           {workday.id && (
             <button
-              className="hover:bg-sky-500 px-1"
+            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
               onClick={() => {
                 if (
                   window.confirm(

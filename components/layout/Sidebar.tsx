@@ -26,7 +26,7 @@ export default function Sidebar() {
       className={cn(
         `relative block h-screen border-r pt-20 md:block z-10 bg-white`,
         status && 'duration-500',
-        isOpen ? 'w-72   bg-white' : 'w-[78px]',
+        isOpen ? 'w-72 bg-white' : 'w-[78px]',
       )}
     >
       <div
@@ -49,8 +49,8 @@ export default function Sidebar() {
             <ul className='flex flex-col gap-2.5'>
               {NavLinks?.slice(0, 5).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <button className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 ${isOpen ? 'justify-start' : "justify-center"}`}>
-                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"}`}>{item?.title}</span>
+                  <button className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'justify-start' : "justify-center"}`}>
+                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block static' : "hidden group-hover:block absolute left-[70px] w-full text-start text-primary"} `}>{item?.title}</span>
                   </button>
                 </li>
               })}
@@ -58,8 +58,8 @@ export default function Sidebar() {
             <ul className='flex flex-col gap-2.5'>
               {NavLinks?.slice(5, 7).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <button className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 ${isOpen ? 'justify-start' : "justify-center"}`}>
-                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"}`}>{item?.title}</span>
+                  <button className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'justify-start' : "justify-center"}`}>
+                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block static' : "hidden group-hover:block absolute left-[70px] w-full text-start text-primary"} `}>{item?.title}</span>
                   </button>
                 </li>
               })}

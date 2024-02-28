@@ -22,6 +22,7 @@ export default function DurationInput({
 
   return (
     <input
+    className='text-base w-full rounded border-[1.5px] bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary'
       id={id ? id : name}
       type="time"
       name={name}

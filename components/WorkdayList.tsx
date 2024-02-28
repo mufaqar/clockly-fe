@@ -50,9 +50,9 @@ export default function WorkdayList({ workday, onEdit, onDeleted }: Props) {
   }
 
   return (
-    <div className="relative overflow-x-auto shadow-md mt-1 sm:rounded-lg">
+    <div className="relative overflow-x-auto shadow-md mt-8 sm:rounded-lg">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+        <thead className="text-xs text-white uppercase bg-primary">
           <tr>
             <th scope="col" className="px-6 py-3">
               Aufgabe

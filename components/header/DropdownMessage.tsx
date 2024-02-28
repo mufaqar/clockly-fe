@@ -37,14 +37,14 @@ const DropdownMessage = () => {
   });
 
   return (
-    <div className="relative">
+    <div className="sm:relative">
       <Link
         ref={trigger}
         onClick={() => {
           setNotifying(false);
           setDropdownOpen(!dropdownOpen);
         }}
-        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray-50 hover:text-primary"
+        className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] bg-gray-50 hover:text-primary"
         href="#"
       >
         <span
@@ -61,17 +61,17 @@ const DropdownMessage = () => {
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute -right-16 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-stroke bg-white shadow-default sm:right-0 sm:w-80 ${dropdownOpen === true ? "block" : "hidden"
+        className={`absolute right-4 mt-2.5 flex h-90 w-64 flex-col rounded-sm border bg-white shadow-default sm:right-0 sm:w-80 ${dropdownOpen === true ? "block" : "hidden"
           }`}
       >
         <div className="px-4 py-3">
           <h5 className="text-sm font-medium text-bodydark2">Messages</h5>
         </div>
 
-        <ul className="flex h-auto flex-col overflow-y-auto">
+        <ul className="flex h-72 flex-col overflow-y-scroll">
           <li>
             <Link
-              className="flex gap-4.5 border-t px-4 py-3 hover:bg-gray-50"
+              className="flex gap-4 items-center border-t px-4 py-3 hover:bg-gray-50"
               href="/messages"
             >
               <div className="h-12 w-12 rounded-full">
@@ -80,10 +80,7 @@ const DropdownMessage = () => {
                   height={112}
                    src={"/images/profile-pic.png"}
                   alt="User"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -98,7 +95,7 @@ const DropdownMessage = () => {
           </li>
           <li>
             <Link
-              className="flex gap-4.5 border-t px-4 py-3 hover:bg-gray-50"
+              className="flex gap-4 items-center border-t px-4 py-3 hover:bg-gray-50"
               href="/messages"
             >
               <div className="h-12 w-12 rounded-full">
@@ -107,10 +104,7 @@ const DropdownMessage = () => {
                   height={112}
                    src={"/images/profile-pic.png"}
                   alt="User"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -125,7 +119,7 @@ const DropdownMessage = () => {
           </li>
           <li>
             <Link
-              className="flex gap-4.5 border-t px-4 py-3 hover:bg-gray-50"
+              className="flex gap-4 items-center border-t px-4 py-3 hover:bg-gray-50"
               href="/messages"
             >
               <div className="h-12 w-12 rounded-full">
@@ -134,10 +128,7 @@ const DropdownMessage = () => {
                   height={112}
                    src={"/images/profile-pic.png"}
                   alt="User"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -152,7 +143,7 @@ const DropdownMessage = () => {
           </li>
           <li>
             <Link
-              className="flex gap-4.5 border-t px-4 py-3 hover:bg-gray-50"
+              className="flex gap-4 items-center border-t px-4 py-3 hover:bg-gray-50"
               href="/messages"
             >
               <div className="h-12 w-12 rounded-full">
@@ -161,10 +152,7 @@ const DropdownMessage = () => {
                   height={112}
                    src={"/images/profile-pic.png"}
                   alt="User"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -179,7 +167,7 @@ const DropdownMessage = () => {
           </li>
           <li>
             <Link
-              className="flex gap-4.5 border-t px-4 py-3 hover:bg-gray-50"
+              className="flex gap-4 items-center border-t px-4 py-3 hover:bg-gray-50"
               href="/messages"
             >
               <div className="h-12 w-12 rounded-full">
@@ -188,10 +176,7 @@ const DropdownMessage = () => {
                   height={112}
                    src={"/images/profile-pic.png"}
                   alt="User"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
