@@ -62,7 +62,7 @@ export default function TimeRecordEdit({
   }
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 bg-white shadow-md p-8 rounded-lg">
       <div className="flex flex-col gap-3">
         <h2 className="text-base font-semibold leading-7 text-gray-900">
           Erfassung der Aufgabe
@@ -82,6 +82,7 @@ export default function TimeRecordEdit({
             Aufgabe
           </label>
           <select
+          className='text-base w-full rounded border-[1.5px] bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary'
             id="task"
             name="task"
             value={timeRec.task.id}
@@ -115,7 +116,7 @@ export default function TimeRecordEdit({
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
         <div className="flex flex-col gap-3 col-span-3">
           <label
             htmlFor="description"
@@ -124,22 +125,23 @@ export default function TimeRecordEdit({
             Beschreibung
           </label>
           <textarea
+           className='text-base w-full rounded border-[1.5px] bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary'
             id="description"
             rows={4}
             value={timeRec.description}
             onChange={(e) => handleChange('description', e.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-3 col-span-1 justify-end items-end">
+        <div className="flex sm:flex-col flex-row gap-3 col-span-1 ms:justify-end sm:items-end">
           <button
-            className="hover:bg-sky-500 disabled:hover:bg-sky-700 disabled:text-gray-500"
+            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
             disabled={!workdayId}
             onClick={() => submit(timeRec)}
           >
             Speichern
           </button>
           <button
-            className="hover:bg-sky-500 disabled:hover:bg-sky-700 disabled:text-gray-500"
+            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
             disabled={!workdayId}
             onClick={onNew}
           >

@@ -36,7 +36,7 @@ const DropdownUser = () => {
   });
 
   return (
-    <div className="relative">
+    <div className="sm:relative">
       <Link
         ref={trigger}
         onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -66,14 +66,14 @@ const DropdownUser = () => {
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute right-0 mt-2.5 flex w-64 flex-col rounded-sm border border-stroke bg-white shadow-sm ${dropdownOpen === true ? "block" : "hidden"
+        className={`absolute right-4 mt-2.5 flex w-64 flex-col rounded-sm border bg-white shadow-sm ${dropdownOpen === true ? "block" : "hidden"
           }`}
       >
-        <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7">
+        <ul className="flex flex-col gap-5 border-b px-6 py-7">
           <li>
             <Link
               href="/profile"
-              className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm"
+              className="flex items-center gap-3 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm"
             >
               <svg
                 className="fill-current"
@@ -98,7 +98,7 @@ const DropdownUser = () => {
           <li>
             <Link
               href="#"
-              className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm"
+              className="flex items-center gap-3 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm"
             >
               <svg
                 className="fill-current"
@@ -119,7 +119,7 @@ const DropdownUser = () => {
           <li>
             <Link
               href="/settings"
-              className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm"
+              className="flex items-center gap-3 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm"
             >
               <svg
                 className="fill-current"
@@ -142,7 +142,7 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm">
+        <button className="flex items-center gap-3 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm">
           <svg
             className="fill-current"
             width="22"

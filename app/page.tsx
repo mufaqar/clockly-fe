@@ -84,8 +84,8 @@ export default function Home() {
   }
 
   return (
-    <div className="grid lg:grid-cols-5 grid-cols-1 p-8 gap-8">
-      <div className="lg:col-span-2 col-span-1">
+    <div className="grid lg:grid-cols-5 grid-cols-1 sm:p-8 p-2 gap-8">
+      <div className="lg:col-span-2 col-span-1 bg-white shadow-md p-8 rounded-lg">
         <WorkdayEdit
           timestamp={timestamp}
           onSelect={(workday) => {
