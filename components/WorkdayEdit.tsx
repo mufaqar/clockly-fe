@@ -128,8 +128,7 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
           Erfassung des Arbeitstages
         </h2>
         <p className="text-sm leading-6 text-gray-600">
-          Bitte erfassen Sie hier Anfang und Ende des Arbeitstages, sowie die
-          Pausenzeit.
+          Bitte erfassen Sie hier Anfang und Ende des Arbeitstages, sowie die Pausenzeit.
         </p>
       </div>
 
