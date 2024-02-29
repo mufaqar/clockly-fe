@@ -74,3 +74,9 @@
     @apply bg-background text-foreground;
   }
 }
+.image-container .solid._active-bg {
+  border-width: 3px !important;
+  border-style: solid !important;
+  border-color: rgb(63, 155, 252) !important;
+  border-image: initial !important;
+}
