@@ -11,6 +11,9 @@ import DurationInput from '@/components/DurationInput';
 import DateInput, { setDate } from '@/components/DateInput';
 import { getAuthOptions } from '@/lib/authOptions';
 import { handleError, processResponse } from '@/lib/errorHandling';
+import { FaCalendarAlt } from 'react-icons/fa';
+import { CiCalendarDate } from 'react-icons/ci';
+import { IoCalendarNumberSharp } from 'react-icons/io5';
 
 export interface Workdays {
   list: Workday[];
@@ -37,7 +40,7 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
 
       fetch(
         process.env.NEXT_PUBLIC_BASE_URL +
-          `/api/users/me/workdays?after=${selectedDate.toISOString()}&before=${addDays(selectedDate, 1).toISOString()}`,
+        `/api/users/me/workdays?after=${selectedDate.toISOString()}&before=${addDays(selectedDate, 1).toISOString()}`,
         options,
       )
         .then(processResponse)
@@ -78,8 +81,8 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
 
     await fetch(
       process.env.NEXT_PUBLIC_BASE_URL +
-        '/api/users/me/workdays' +
-        (workday.id ? `/${workday.id}` : ''),
+      '/api/users/me/workdays' +
+      (workday.id ? `/${workday.id}` : ''),
       {
         ...options,
         headers: headers,
@@ -97,7 +100,7 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
 
     await fetch(
       process.env.NEXT_PUBLIC_BASE_URL +
-        `/api/users/me/workdays/${workday!.id}`,
+      `/api/users/me/workdays/${workday!.id}`,
       {
         ...options,
         method: 'DELETE',
@@ -133,11 +136,11 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
       <div className="flex flex-col gap-3">
         <label
           htmlFor="startDate"
-          className="block text-sm font-medium leading-6 text-gray-900"
+          className="flex items-center gap-2 text-sm font-medium leading-6 text-gray-900"
         >
           {workday.id ? (
             <span role="img" aria-label="neu">
-              💾
+              <CiCalendarDate  className='text-2xl'/>
             </span>
           ) : (
             <span role="img" aria-label="gespeichert">
@@ -222,7 +225,7 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
           </button>
           {workday.id && (
             <button
-            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
+              className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
               onClick={() => {
                 if (
                   window.confirm(
