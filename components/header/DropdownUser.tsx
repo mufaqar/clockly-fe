@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BsChevronDown } from "react-icons/bs";
 
-const DropdownUser = () => {
+const DropdownUser = ({logout}:any) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
@@ -142,7 +142,7 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm">
+        <button onClick={logout} className="flex items-center gap-3 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-sm">
           <svg
             className="fill-current"
             width="22"

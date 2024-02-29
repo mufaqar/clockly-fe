@@ -18,7 +18,7 @@ export default function Settings() {
                     <h2 className="text-base font-semibold leading-7 text-gray-900 mb-3">
                         Choose Color
                     </h2>
-                    <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 md:gap-3 lg:gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 md:gap-3 lg:gap-6">
                         {solidColors.map(({ color, i }: any) => {
                             return (
                                 <div key={i}

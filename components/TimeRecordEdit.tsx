@@ -132,7 +132,7 @@ export default function TimeRecordEdit({
             onChange={(e) => handleChange('description', e.target.value)}
           />
         </div>
-        <div className="flex sm:flex-col flex-row gap-3 col-span-1 ms:justify-end sm:items-end">
+        <div className="flex sm:flex-row flex-row gap-3 col-span-1 ms:justify-end sm:items-end">
           <button
             className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
             disabled={!workdayId}

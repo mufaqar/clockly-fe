@@ -10,6 +10,7 @@ import { IoMdLogOut } from 'react-icons/io';
 import { IoClose, IoSettingsOutline } from 'react-icons/io5';
 import { RiFileList2Line } from 'react-icons/ri';
 import { FaBarsStaggered } from 'react-icons/fa6';
+import Link from 'next/link';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,23 +45,23 @@ export default function Sidebar() {
 
       </div>
       <div className="space-y-4 py-4 h-full md:overflow-y-hidden overflow-y-scroll">
-        <div className="px-3 py-2 h-full">
-          <div className="mt-3 space-y-1 flex flex-col h-full justify-between">
+        <div className="px-3 pt-2 pb-10 h-full">
+          <div className="mt-8 space-y-1 flex flex-col h-full justify-between">
             <ul className='flex flex-col gap-2.5'>
               {NavLinks?.slice(0, 5).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <button className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'justify-start' : "justify-center"}`}>
-                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block static' : "hidden group-hover:block absolute left-[70px] w-full text-start text-primary"} `}>{item?.title}</span>
-                  </button>
+                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
+                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"} `}>{item?.title}</span>
+                  </Link>
                 </li>
               })}
             </ul>
             <ul className='flex flex-col gap-2.5'>
               {NavLinks?.slice(5, 7).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <button className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'justify-start' : "justify-center"}`}>
-                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block static' : "hidden group-hover:block absolute left-[70px] w-full text-start text-primary"} `}>{item?.title}</span>
-                  </button>
+                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
+                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"} `}>{item?.title}</span>
+                  </Link>
                 </li>
               })}
             </ul>
@@ -79,7 +80,7 @@ export default function Sidebar() {
 export const NavLinks = [
   {
     title: "Home",
-    link: "#",
+    link: "/",
     icon: <FiHome />,
   },
   {
@@ -104,12 +105,7 @@ export const NavLinks = [
   },
   {
     title: 'Settings',
-    link: "#",
+    link: "/settings",
     icon: <IoSettingsOutline />,
-  },
-  {
-    title: 'Log out',
-    link: "#",
-    icon: <IoMdLogOut />,
   },
 ]

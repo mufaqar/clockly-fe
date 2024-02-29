@@ -28,9 +28,8 @@ export default function Header() {
         <div className="md:w-1/2 w-full flex gap-4 h-16 items-center justify-end px-4">
           <DropdownNotification />
           <DropdownMessage />
-          <DropdownUser />
           <AuthenticatedTemplate>
-            <button onClick={logout}>Logout</button>
+          <DropdownUser logout={logout} />
           </AuthenticatedTemplate>
         </div>
       </nav>
