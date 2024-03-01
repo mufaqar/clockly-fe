@@ -73,7 +73,7 @@ export default function TimeRecordEdit({
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-4 gap-4 grid-cols-1">
+      <div className="grid sm:grid-cols-5 gap-4 grid-cols-1">
         <div className="flex flex-col gap-3 col-span-1 sm:col-span-3">
           <label
             htmlFor="task"
@@ -101,7 +101,7 @@ export default function TimeRecordEdit({
             ))}
           </select>
         </div>
-        <div className="flex flex-col gap-3 col-span-1">
+        <div className="flex flex-col gap-3 col-span-2">
           <label
             htmlFor="duration"
             className="block text-sm font-medium leading-6 text-gray-900"
@@ -116,7 +116,7 @@ export default function TimeRecordEdit({
         </div>
       </div>
 
-      <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
+      <div className="grid md:grid-cols-5 grid-cols-1 gap-4">
         <div className="flex flex-col gap-3 col-span-3">
           <label
             htmlFor="description"
@@ -132,7 +132,7 @@ export default function TimeRecordEdit({
             onChange={(e) => handleChange('description', e.target.value)}
           />
         </div>
-        <div className="flex sm:flex-row flex-row gap-3 col-span-1 ms:justify-end sm:items-end">
+        <div className="flex sm:flex-row flex-row gap-3 col-span-2 sm:justify-end sm:items-end">
           <button
             className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
             disabled={!workdayId}
