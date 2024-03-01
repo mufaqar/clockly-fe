@@ -139,13 +139,13 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
         >
           {workday.id ? (
             <span role="img" aria-label="neu">
-              <CiCalendarDate  className='text-2xl'/>
+              <CiCalendarDate className='text-2xl' />
             </span>
           ) : (
             <span role="img" aria-label="gespeichert">
-              ✨
+              <CiCalendarDate className='text-2xl' />
             </span>
-          )}{' '}
+          )}
           Arbeitstag
         </label>
         <DateInput

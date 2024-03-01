@@ -20,6 +20,7 @@ import Header from '@/components/layout/Header';
 import { cn } from '@/lib/style';
 import Sidebar from '@/components/layout/Sidebar';
 import { ToastContainer } from 'react-toastify';
+import { ColorProvider } from '@/const/colorcontext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -79,33 +80,35 @@ export default function RootLayout({
           inter.className,
         )}
       >
-        {isClient ? (
-          <MsalProvider instance={pca}>
-            <Header />
-            <div className="flex h-screen border-collapse overflow-hidden bg-gray-50">
-              <Sidebar />
-              <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 bg-secondary/10 pb-1">
-                <UnauthenticatedTemplate>
-                  <div className="flex items-center justify-center mt-3">
-                    Im Moment ist kein Benutzer angemeldet.
-                  </div>
-                </UnauthenticatedTemplate>
-                <MsalAuthenticationTemplate
-                  interactionType={InteractionType.Redirect}
-                  authenticationRequest={loginRequest}
-                  errorComponent={ErrorComponent}
-                  loadingComponent={LoadingComponent}
-                >
-                  {children}
-                </MsalAuthenticationTemplate>
-              
-              </main>
-            </div>
-            <ToastContainer hideProgressBar={true} autoClose={10000} />
-          </MsalProvider>
-        ) : (
-          <></>
-        )}
+        <ColorProvider>
+          {isClient ? (
+            <MsalProvider instance={pca}>
+              <Header />
+              <div className="flex h-screen border-collapse overflow-hidden bg-gray-50">
+                <Sidebar />
+                <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 bg-secondary/10 pb-1">
+                  <UnauthenticatedTemplate>
+                    <div className="flex items-center justify-center mt-3">
+                      Im Moment ist kein Benutzer angemeldet.
+                    </div>
+                  </UnauthenticatedTemplate>
+                  <MsalAuthenticationTemplate
+                    interactionType={InteractionType.Redirect}
+                    authenticationRequest={loginRequest}
+                    errorComponent={ErrorComponent}
+                    loadingComponent={LoadingComponent}
+                  >
+                    {children}
+                  </MsalAuthenticationTemplate>
+
+                </main>
+              </div>
+              <ToastContainer hideProgressBar={true} autoClose={10000} />
+            </MsalProvider>
+          ) : (
+            <></>
+          )}
+        </ColorProvider>
       </body>
     </html>
   );

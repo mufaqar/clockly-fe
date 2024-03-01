@@ -50,7 +50,7 @@ export default function Sidebar() {
             <ul className='flex flex-col gap-2.5'>
               {NavLinks?.slice(0, 5).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
+                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
                     <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"} `}>{item?.title}</span>
                   </Link>
                 </li>
@@ -59,7 +59,7 @@ export default function Sidebar() {
             <ul className='flex flex-col gap-2.5'>
               {NavLinks?.slice(5, 7).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 w-full rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
+                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
                     <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"} `}>{item?.title}</span>
                   </Link>
                 </li>
