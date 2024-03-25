@@ -122,58 +122,15 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-3">
-        <h2 className="text-base font-semibold leading-7 text-gray-900">
-          Erfassung des Arbeitstages
-        </h2>
-        <p className="text-sm leading-6 text-gray-600">
-          Bitte erfassen Sie hier Anfang und Ende des Arbeitstages, sowie die Pausenzeit.
-        </p>
-      </div>
-
-      <div className="flex flex-col gap-3">
-        <label
-          htmlFor="startDate"
-          className="flex items-center gap-2 text-sm font-medium leading-6 text-gray-900"
-        >
-          {workday.id ? (
-            <span role="img" aria-label="neu">
-              <CiCalendarDate className='text-2xl' />
-            </span>
-          ) : (
-            <span role="img" aria-label="gespeichert">
-              <CiCalendarDate className='text-2xl' />
-            </span>
-          )}
-          Arbeitstag
-        </label>
-        <DateInput
-          id="startDate"
-          name="start"
-          value={
-            workday.start ? format(new Date(workday.start), DATE_PATTERN) : null
-          }
-          handleChange={(value) => {
-            const newStartDate = setDate(new Date(workday.start), value);
-
-            setSelectedDate(new Date(newStartDate.setHours(0, 0, 0, 0)));
-            handleChange('start', newStartDate.toISOString());
-            if (workday.end) {
-              handleChange(
-                'end',
-                setDate(new Date(workday.end), value).toISOString(),
-              );
-            }
-          }}
-        />
-      </div>
-
-      <div className="grid grid-cols-2 gap-4">
-        <div className="flex flex-col gap-3 col-span-1">
+    <div className="bg-card shadow-[0_8px_10px_1px_rgba(0,0,0,0.14)] rounded-lg sm:p-8 p-5">
+      <h2 className='md:text-2xl text-xl font-normal sm:text-foreground/85 text-primary mb-5'>
+        Arbeitstag
+      </h2>
+      <div className="grid sm:grid-cols-4 grid-cols-2 gap-4">
+        <div className="col-span-1">
           <label
             htmlFor="startTime"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="flex items-center text-xs font-normal leading-6 text-foreground mb-[-13px] ml-3.5 bg-card px-1.5 w-fit z-10 relative"
           >
             Beginn
           </label>
@@ -185,10 +142,10 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
             handleChange={(value) => handleChange('start', value)}
           />
         </div>
-        <div className="flex flex-col gap-3 col-span-1">
+        <div className="col-span-1">
           <label
             htmlFor="end"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="flex items-center text-xs font-normal leading-6 text-foreground mb-[-13px] ml-3.5 bg-card px-1.5 w-fit z-10 relative"
           >
             Ende
           </label>
@@ -199,13 +156,10 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
             handleChange={(value) => handleChange('end', value)}
           />
         </div>
-      </div>
-
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-        <div className="flex flex-col gap-3 col-span-1">
+        <div className="col-span-1">
           <label
             htmlFor="workBreak"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="flex items-center text-xs font-normal leading-6 text-foreground mb-[-13px] ml-3.5 bg-card px-1.5 w-fit z-10 relative"
           >
             Pause
           </label>
@@ -217,14 +171,14 @@ export default function WorkdayEdit({ timestamp, onSelect, onDeleted }: Props) {
         </div>
         <div className="col-span-1 flex gap-1 justify-end items-end">
           <button
-            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
+            className="sm:text-sm text-xs font-medium uppercase items-center justify-center bg-primary px-1.5 py-4 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded shadow-[0_2px_2px_0_rgba(0,0,0,0.2)]"
             onClick={() => submit(workday)}
           >
             Speichern
           </button>
           {workday.id && (
             <button
-              className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
+              className="sm:text-sm text-xs font-medium items-center justify-center bg-primary px-1.5 py-4 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded shadow-[0_2px_2px_0_rgba(0,0,0,0.2)]"
               onClick={() => {
                 if (
                   window.confirm(

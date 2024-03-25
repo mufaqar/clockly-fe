@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0, 0%, 96%;
+    --foreground: 0 0% 0%;
 
-    --card: 0 0% 100%;
+    --card: 0 0% 98%;
     --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
@@ -84,4 +84,22 @@
 
 .image-container .solid._active-bg {
   border-color: rgb(63, 155, 252) !important;
+}
+.css-1rtg91x-MuiDateCalendar-root{
+  height: 100%!important;
+  max-height: none!important;
+  justify-content: center;
+  border-radius: 10px;
+}
+.css-1rv8zyt-MuiStack-root>:not(style):not(style){
+  height: 100%;
+  border-radius: 10px;
+}
+.css-1rv8zyt-MuiStack-root{
+  height: 100%;
+  border-radius: 10px;
+  box-shadow:  0 8px 10px 3px rgba(0, 0, 0, 0.14);;
+}
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root{
+  font-size: 14px!important;
 }

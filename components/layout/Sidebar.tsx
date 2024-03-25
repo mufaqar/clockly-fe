@@ -3,13 +3,7 @@
 import { useState } from 'react';
 
 import { cn } from '@/lib/style';
-import { FiHome } from 'react-icons/fi';
-import { AiOutlineMessage } from 'react-icons/ai';
-import { FaRegUserCircle, FaRegBuilding } from 'react-icons/fa';
-import { IoMdLogOut } from 'react-icons/io';
-import { IoClose, IoSettingsOutline } from 'react-icons/io5';
-import { RiFileList2Line } from 'react-icons/ri';
-import { FaBarsStaggered } from 'react-icons/fa6';
+import { FaEnvelopeOpen, FaUserAlt } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Sidebar() {
@@ -25,53 +19,22 @@ export default function Sidebar() {
   return (
     <nav
       className={cn(
-        `relative block h-screen border-r pt-20 md:block z-10 bg-white`,
+        ` block md:h-screen h-fit md:border-r border-t md:pt-20 md:block z-40 bg-background md:static fixed bottom-0`,
         status && 'duration-500',
-        isOpen ? 'w-72 bg-white' : 'w-[78px]',
+        isOpen ? 'w-72 bg-background' : 'md:w-[78px] w-full',
       )}
     >
-      <div
-        className={cn(
-          'absolute -right-3 top-20 cursor-pointer rounded-full border bg-background text-3xl text-foreground w-10 h-10 p-2.5 flex items-center justify-center',
-          !isOpen && 'rotate-180',
-        )}
-        onClick={handleToggle}
-      >
-        {!isOpen ? (
-          <FaBarsStaggered className='text-2xl' />
-        ) : (
-          <IoClose />
-        )}
-
-      </div>
-      <div className="space-y-4 py-4 h-full md:overflow-y-hidden overflow-y-scroll">
-        <div className="px-3 pt-2 pb-10 h-full">
-          <div className="mt-8 space-y-1 flex flex-col h-full justify-between">
-            <ul className='flex flex-col gap-2.5'>
+        <div className="pt-2 md:pb-10">
+            <ul className='md:mt-8 flex md:flex-col flex-row gap-2.5 md:justify-start justify-between'>
               {NavLinks?.slice(0, 5).map((item: any, idx: number) => {
                 return <li key={idx}>
-                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
-                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"} `}>{item?.title}</span>
+                  <Link href={item?.link} className={`text-xs font-medium text-foreground/55 bg-transparent border-l-[3px] border-transparent hover:border-primary hover:bg-white hover:text-primary flex flex-col items-center gap-1 py-3 px-2 group  ${isOpen ? 'justify-start' : "justify-center"}`}>
+                    <span className='text-lg'>{item?.icon}</span> <span className='hidden'>{item?.title}</span>
                   </Link>
                 </li>
               })}
             </ul>
-            <ul className='flex flex-col gap-2.5'>
-              {NavLinks?.slice(5, 7).map((item: any, idx: number) => {
-                return <li key={idx}>
-                  <Link href={item?.link} className={`text-base font-medium text-title bg-transparent hover:bg-primary hover:text-white flex items-center gap-1 rounded-[15px] py-1.5 group  ${isOpen ? 'w-[80%] justify-start' : "justify-center"}`}>
-                    <span className='w-10 h-10 p-2.5 text-xl'>{item?.icon}</span> <span className={`${isOpen ? 'block' : "hidden"} `}>{item?.title}</span>
-                  </Link>
-                </li>
-              })}
-            </ul>
-            {/*<SideNav
-                            className="text-background opacity-0 transition-all duration-300 group-hover:z-50 group-hover:ml-4 group-hover:rounded group-hover:bg-foreground group-hover:p-2 group-hover:opacity-100"
-                            items={NavItems}
-                        />*/}
-          </div>
         </div>
-      </div>
     </nav>
   );
 }
@@ -79,33 +42,13 @@ export default function Sidebar() {
 
 export const NavLinks = [
   {
-    title: "Home",
-    link: "/",
-    icon: <FiHome />,
-  },
-  {
     title: 'Profile',
-    link: "#",
-    icon: <FaRegUserCircle />,
-  },
-  {
-    title: 'My Work',
-    link: "#",
-    icon: <RiFileList2Line />,
+    link: "/",
+    icon: <FaUserAlt />,
   },
   {
     title: 'Messages',
     link: "#",
-    icon: <AiOutlineMessage />,
-  },
-  {
-    title: 'Employers',
-    link: "#",
-    icon: <FaRegBuilding />,
-  },
-  {
-    title: 'Settings',
-    link: "/settings",
-    icon: <IoSettingsOutline />,
+    icon: <FaEnvelopeOpen />,
   },
 ]

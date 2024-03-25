@@ -16,6 +16,7 @@ import WorkdayList, {
 } from '@/components/WorkdayList';
 import { getAuthOptions } from '@/lib/authOptions';
 import { handleError, processResponse } from '@/lib/errorHandling';
+import DateCalendar from '@/components/DateCalander';
 
 export default function Home() {
   const { instance, inProgress, accounts } = useMsal();
@@ -84,33 +85,44 @@ export default function Home() {
   }
 
   return (
-    <div className="grid lg:grid-cols-5 grid-cols-1 sm:p-8 p-2 gap-8">
-      <div className="lg:col-span-2 col-span-1 bg-white shadow-md p-8 rounded-lg">
-        <WorkdayEdit
-          timestamp={timestamp}
-          onSelect={(workday) => {
-            setWorkday(workday);
-            resetTimeRecord(workday);
-          }}
-          onDeleted={reload}
-        />
+    <div className='sm:p-8 p-7'>
+      <div className='sm:block hidden'>
+        <h1 className='sm:text-5xl text-2xl font-normal text-primary'>
+          Arbeitstag & Aufgaben
+        </h1>
+        <p className='text-base font-normal text-foreground/85 my-5'>
+          Bitte erfassen Sie hier Anfang und Ende des Arbeitstages, sowie die Pausenzeit. Aufgaben....
+        </p>
       </div>
-      <div className="lg:col-span-3 col-span-1">
-        <TimeRecordEdit
-          key={timeRecordEditKey}
-          workdayId={workday?.id}
-          timeRecord={timeRecord}
-          availableTasks={availableTasks}
-          onSaved={reload}
-          onNew={() => resetTimeRecord(workday)}
-        />
+
+      <div className='grid lg:grid-cols-6 grid-cols-1 sm:gap-14 gap-8'>
+        <div className="lg:col-span-2 col-span-1">
+          <DateCalendar />
+        </div>
+        <div className="lg:col-span-4 col-span-1 flex flex-col gap-5">
+          <WorkdayEdit
+            timestamp={timestamp}
+            onSelect={(workday) => {
+              setWorkday(workday);
+              resetTimeRecord(workday);
+            }}
+            onDeleted={reload} />
+          <TimeRecordEdit
+            key={timeRecordEditKey}
+            workdayId={workday?.id}
+            timeRecord={timeRecord}
+            availableTasks={availableTasks}
+            onSaved={reload}
+            onNew={() => resetTimeRecord(workday)} />
+        </div>
+      </div>
+      <div>
         <WorkdayList
           workday={workday}
           onEdit={(timeRecord) => {
             resetTimeRecord(workday, timeRecord);
           }}
-          onDeleted={reload}
-        />
+          onDeleted={reload} />
       </div>
     </div>
   );

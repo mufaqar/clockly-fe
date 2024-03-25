@@ -5,8 +5,8 @@ import { handleError, processResponse } from '@/lib/errorHandling';
 
 export interface Workday {
   id?: string;
-  start: string;
   end: string | null;
+  start: string;
   workBreak: number | null;
   timeRecords: TimeRecord[];
 }
@@ -16,6 +16,7 @@ export interface TimeRecord {
   duration: number | null;
   description: string;
   task: Task;
+  start: string;
 }
 
 export interface Task {
@@ -37,7 +38,7 @@ export default function WorkdayList({ workday, onEdit, onDeleted }: Props) {
 
     await fetch(
       process.env.NEXT_PUBLIC_BASE_URL +
-        `/api/users/me/workdays/${workday!.id}/timerecords/${timeRecord.id}`,
+      `/api/users/me/workdays/${workday!.id}/timerecords/${timeRecord.id}`,
       {
         ...options,
         method: 'DELETE',
@@ -50,20 +51,22 @@ export default function WorkdayList({ workday, onEdit, onDeleted }: Props) {
   }
 
   return (
-    <div className="relative overflow-x-auto shadow-md mt-8 sm:rounded-lg">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead className="text-xs text-white uppercase bg-primary">
+    <div className="relative overflow-x-auto shadow-md mt-8 sm:rounded-[10px] mb-8">
+      <table className="w-full text-base font-normal text-left rtl:text-right text-foreground">
+        <thead className="text-sm text-white uppercase bg-primary">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th className="px-6 py-1">
+              Tag
+            </th>
+            <th className="px-6 py-1">
               Aufgabe
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th className="px-6 py-1">
               Beschreibung
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th className="px-6 py-1">
               Dauer
             </th>
-            <th scope="col" className="px-6 py-3"></th>
           </tr>
         </thead>
         <tbody>
@@ -72,37 +75,11 @@ export default function WorkdayList({ workday, onEdit, onDeleted }: Props) {
               key={timeRecord.id}
               className="odd:bg-white even:bg-gray-50 border-b"
             >
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                {timeRecord.task.name}
-              </th>
+              <td className="px-6 py-4">{timeRecord.start}</td>
+              <td className="px-6 py-4">{timeRecord.task.name}</td>
               <td className="px-6 py-4">{timeRecord.description}</td>
               <td className="px-6 py-4">{toHourFormat(timeRecord.duration)}</td>
-              <td className="px-6 py-4">
-                <button
-                  aria-label="bearbeiten"
-                  className="px-1"
-                  onClick={() => onEdit(timeRecord)}
-                >
-                  ✏️
-                </button>
-                <button
-                  aria-label="löschen"
-                  className="px-1"
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        `Möchten Sie den Eintrag ${timeRecord.task.name} ${timeRecord.description} wirklich löschen?`,
-                      )
-                    ) {
-                      remove(timeRecord);
-                    }
-                  }}
-                >
-                  🗑️
-                </button>
+              <td className="px-6 py-4">                
               </td>
             </tr>
           ))}

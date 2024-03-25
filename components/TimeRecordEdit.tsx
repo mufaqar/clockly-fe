@@ -9,6 +9,7 @@ export const defaultTimeRecord: TimeRecord = {
   duration: null,
   description: '',
   task: { id: '', name: '' },
+  start: '',
 };
 
 interface Props {
@@ -37,7 +38,7 @@ export default function TimeRecordEdit({
 
     await fetch(
       process.env.NEXT_PUBLIC_BASE_URL +
-        `/api/users/me/workdays/${workdayId}/timerecords${timeRecord.id ? `/${timeRecord.id}` : ''}`,
+      `/api/users/me/workdays/${workdayId}/timerecords${timeRecord.id ? `/${timeRecord.id}` : ''}`,
       {
         ...options,
         headers: postHeaders,
@@ -62,27 +63,21 @@ export default function TimeRecordEdit({
   }
 
   return (
-    <div className="flex flex-col gap-8 bg-white shadow-md p-8 rounded-lg">
-      <div className="flex flex-col gap-3">
-        <h2 className="text-base font-semibold leading-7 text-gray-900">
-          Erfassung der Aufgabe
-        </h2>
-        <p className="text-sm leading-6 text-gray-600">
-          Bitte erfassen Sie hier eine bearbeitete Aufgabe und die dazugehörige
-          Dauer.
-        </p>
-      </div>
+    <div className="bg-card shadow-[0_8px_10px_1px_rgba(0,0,0,0.14)] rounded-lg sm:p-8 p-5">
+      <h2 className='md:text-2xl text-xl font-normal sm:text-foreground/85 text-primary mb-5'>
+        Arbeitstag
+      </h2>
 
-      <div className="grid sm:grid-cols-5 gap-4 grid-cols-1">
-        <div className="flex flex-col gap-3 col-span-1 sm:col-span-3">
+      <div className="grid sm:grid-cols-5 gap-4 grid-cols-4">
+        <div className="sm:col-span-3 col-span-4 order-1">
           <label
             htmlFor="task"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="flex items-center text-xs font-normal leading-6 text-foreground mb-[-13px] ml-3.5 bg-card px-1.5 w-fit z-10 relative"
           >
             Aufgabe
           </label>
           <select
-          className='text-base w-full rounded border-[1.5px] bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary'
+            className='text-base w-full rounded border-[1.5px] bg-transparent px-3.5 py-[15px] font-normal outline-none transition focus:border-primary active:border-primary'
             id="task"
             name="task"
             value={timeRec.task.id}
@@ -101,10 +96,10 @@ export default function TimeRecordEdit({
             ))}
           </select>
         </div>
-        <div className="flex flex-col gap-3 col-span-2">
+        <div className="sm:col-span-2 col-span-2 sm:order-2 order-3">
           <label
             htmlFor="duration"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="flex items-center text-xs font-normal leading-6 text-foreground mb-[-13px] ml-3.5 bg-card px-1.5 w-fit z-10 relative"
           >
             Dauer
           </label>
@@ -114,39 +109,36 @@ export default function TimeRecordEdit({
             handleChange={(value) => handleChange('duration', value)}
           />
         </div>
-      </div>
-
-      <div className="grid md:grid-cols-5 grid-cols-1 gap-4">
-        <div className="flex flex-col gap-3 col-span-3">
+        <div className="sm:col-span-3 col-span-4 sm:order-3 order-2">
           <label
             htmlFor="description"
-            className="block text-sm font-medium leading-6 text-gray-900"
+            className="flex items-center text-xs font-normal leading-6 text-foreground mb-[-13px] ml-3.5 bg-card px-1.5 w-fit z-10 relative"
           >
             Beschreibung
           </label>
           <textarea
-           className='text-base w-full rounded border-[1.5px] bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary'
+            className='text-base w-full rounded border-[1.5px] bg-transparent px-3.5 py-[15px] font-normal outline-none transition focus:border-primary active:border-primary'
             id="description"
             rows={4}
             value={timeRec.description}
             onChange={(e) => handleChange('description', e.target.value)}
           />
         </div>
-        <div className="flex sm:flex-row flex-row gap-3 col-span-2 sm:justify-end sm:items-end">
+        <div className="sm:col-span-2 col-span-2 order-4 flex sm:flex-row flex-row gap-3  justify-end sm:items-end sm:pt-0 pt-3">
           <button
-            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
+            className="sm:text-sm text-xs font-medium uppercase items-center justify-center bg-primary px-1.5 py-4 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded shadow-[0_2px_2px_0_rgba(0,0,0,0.2)]"
             disabled={!workdayId}
             onClick={() => submit(timeRec)}
           >
             Speichern
           </button>
-          <button
-            className="sm:text-base text-xs font-medium items-center justify-center bg-primary px-3 py-3 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded"
+          {/* <button
+            className="sm:text-sm text-xs font-medium items-center justify-center bg-primary px-1.5 py-4 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded shadow-[0_2px_2px_0_rgba(0,0,0,0.2)]"
             disabled={!workdayId}
             onClick={onNew}
           >
             Neu
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
