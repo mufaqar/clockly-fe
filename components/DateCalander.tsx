@@ -18,7 +18,7 @@ export default function DateCalendarWrapper() { // Rename the component
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer components={['DateCalendar', 'DateCalendar']}>
                         <DemoItem>
-                            <DateCalendar className='bg-white !w-full shadow-[0_8px_10px_1px_rgba(0,0,0,0.14)] rounded-lg sm:p-8 h-full ' value={value} /> {/* Use the renamed child component */}
+                            <DateCalendar className='bg-white !w-full rounded-lg sm:p-8 h-full ' value={value} /> {/* Use the renamed child component */}
                         </DemoItem>
                     </DemoContainer>
                 </LocalizationProvider>

@@ -98,7 +98,7 @@
 .css-1rv8zyt-MuiStack-root{
   height: 100%;
   border-radius: 10px;
-  box-shadow:  0 8px 10px 3px rgba(0, 0, 0, 0.14);;
+  padding-top: 0px!important;
 }
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root{
   font-size: 14px!important;
