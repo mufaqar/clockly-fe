@@ -9,7 +9,6 @@ export const defaultTimeRecord: TimeRecord = {
   duration: null,
   description: '',
   task: { id: '', name: '' },
-  start: '',
 };
 
 interface Props {
@@ -132,13 +131,13 @@ export default function TimeRecordEdit({
           >
             Speichern
           </button>
-          {/* <button
+          <button
             className="sm:text-sm text-xs font-medium items-center justify-center bg-primary px-1.5 py-4 text-center text-white hover:bg-transparent hover:text-primary border-2 border-primary rounded shadow-[0_2px_2px_0_rgba(0,0,0,0.2)]"
             disabled={!workdayId}
             onClick={onNew}
           >
             Neu
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

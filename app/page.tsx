@@ -94,28 +94,18 @@ export default function Home() {
           Bitte erfassen Sie hier Anfang und Ende des Arbeitstages, sowie die Pausenzeit. Aufgaben....
         </p>
       </div>
-
-      <div className='grid lg:grid-cols-6 grid-cols-1 sm:gap-14 gap-8'>
-        <div className="lg:col-span-2 col-span-1">
-          <DateCalendar />
-        </div>
-        <div className="lg:col-span-4 col-span-1 flex flex-col gap-5">
-          <WorkdayEdit
-            timestamp={timestamp}
-            onSelect={(workday) => {
-              setWorkday(workday);
-              resetTimeRecord(workday);
-            }}
-            onDeleted={reload} />
-          <TimeRecordEdit
-            key={timeRecordEditKey}
-            workdayId={workday?.id}
-            timeRecord={timeRecord}
-            availableTasks={availableTasks}
-            onSaved={reload}
-            onNew={() => resetTimeRecord(workday)} />
-        </div>
-      </div>
+      <WorkdayEdit
+        timestamp={timestamp}
+        onSelect={(workday) => {
+          setWorkday(workday);
+          resetTimeRecord(workday);
+        }}
+        onDeleted={reload}
+        timeRecordEditKey={() => timeRecordEditKey}
+        timeRecord={timeRecord}
+        availableTasks={availableTasks}
+        reload={reload}
+        resetTimeRecord={resetTimeRecord} />
       <div>
         <WorkdayList
           workday={workday}

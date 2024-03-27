@@ -16,7 +16,6 @@ export interface TimeRecord {
   duration: number | null;
   description: string;
   task: Task;
-  start: string;
 }
 
 export interface Task {
@@ -75,12 +74,10 @@ export default function WorkdayList({ workday, onEdit, onDeleted }: Props) {
               key={timeRecord.id}
               className="odd:bg-white even:bg-gray-50 border-b"
             >
-              <td className="px-6 py-4">{timeRecord.start}</td>
+              <td className="px-6 py-4">{workday.start}</td>
               <td className="px-6 py-4">{timeRecord.task.name}</td>
               <td className="px-6 py-4">{timeRecord.description}</td>
               <td className="px-6 py-4">{toHourFormat(timeRecord.duration)}</td>
-              <td className="px-6 py-4">                
-              </td>
             </tr>
           ))}
         </tbody>
